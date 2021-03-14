@@ -6,3 +6,6 @@ node_modules
 
 # built files
 dist
+
+# test in dev file
+.http

@@ -1,12 +1,11 @@
-import app from './app'
+import Application from './app';
+import { v4 as uuidv4 } from 'uuid';
+import Env from '@jcazako/env';
 
-const env = process.env.NODE_ENV ?? 'prod';
+const envSession: Env = new Env();
 
-// dynamic dev environment
-if (!['prod', 'production'].includes(env)) {
-    import('dotenv').then(dotenv => dotenv.config())
-}
+const port = process.env.DEFAULT_PORT || 3000;
 
-console.log(`env: ${env}`);
-console.log(app);
-console.log('FIN')
+const server = new Application({ id: uuidv4(), port: Number(port), env: envSession.env });
+
+server.start();
