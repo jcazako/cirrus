@@ -6,6 +6,10 @@ const envSession: Env = new Env();
 
 const port = process.env.DEFAULT_PORT || 3000;
 
-const server = new Application({ id: uuidv4(), port: Number(port), env: envSession.env });
+const server = new Application({
+  id: uuidv4(),
+  port: Number(port),
+  env: envSession.env
+});
 
 server.start();

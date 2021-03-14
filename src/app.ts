@@ -49,7 +49,9 @@ class Application {
     await setupRoutes(router);
 
     this.server = app.listen(this.port, () => {
-      console.log(`starting server in ${this.env} at http://${this.host}:${this.port}`);
+      console.log(
+        `starting server in ${this.env} at http://${this.host}:${this.port}`
+      );
     });
 
     SIGNALS.forEach((signal) => {
